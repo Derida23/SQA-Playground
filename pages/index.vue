@@ -12,8 +12,10 @@ onMounted(async () => {
 })
 
 const handleMessage = (event: any) => {
-  console.log(event.data)
-  message.value = event.data
+  if (event.data.source === 'privy-2fa-sdk' || event.data.source === 'privypass_liveness'){
+    console.log(event.data.source)
+    message.value = event.data
+  }
 }
 
 const handleSignedUrl = () => {
